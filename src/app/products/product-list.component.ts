@@ -28,4 +28,11 @@ export class ProductListComponent {
       }
 
     ];
+
+    isShowImage: boolean;
+
+    toggleShowImage() {
+      console.log(this.isShowImage);
+      this.isShowImage = !this.isShowImage;
+    }
 }
