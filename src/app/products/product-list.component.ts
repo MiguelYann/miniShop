@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IProduct } from './product';
 
 @Component({
   selector: 'product-list',
@@ -7,7 +8,7 @@ import { Component } from '@angular/core';
 export class ProductListComponent {
   pageTitle = 'Liste des produits';
   filterText = " Price";
-  products: any[] = [
+  products: IProduct[] = [
     {
       id: 1,
       productName: 'iPhone 11',
