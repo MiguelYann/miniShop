@@ -48,9 +48,12 @@
               />
             </td>
             <td>{{ product.productName }}</td>
-            <td>{{ product.code | convertToSpace : '-' }}</td>
+            <td>{{ product.code | convertToSpace: "-" }}</td>
             <td>{{ product.releaseDate }}</td>
             <td>{{ product.price | currency: "EUR" }}</td>
+            <td>
+              <star></star>
+            </td>
           </tr>
         </tbody>
       </table>
