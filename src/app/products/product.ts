@@ -3,6 +3,6 @@ export interface IProduct {
   productName: string;
   releaseDate: string;
   price: number,
-  starRating: string;
+  starRating: number;
   image: string;
 }

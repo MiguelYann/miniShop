@@ -1,7 +1,5 @@
 <div class="card">
-  <div class="card-header">
-    {{ pageTitle }}
-  </div>
+  <div class="card-header">{{ pageTitle }} {{ totalRating }}</div>
 
   <div class="card-body">
     <div class="row">
@@ -52,7 +50,10 @@
             <td>{{ product.releaseDate }}</td>
             <td>{{ product.price | currency: "EUR" }}</td>
             <td>
-              <star></star>
+              <star
+                [rating]="product.starRating"
+                (event)="receive($event)"
+              ></star>
             </td>
           </tr>
         </tbody>
