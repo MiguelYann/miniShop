@@ -15,9 +15,7 @@ export class ProductListComponent implements OnInit {
   initialProducts: IProduct[];
   totalRating: number;
 
-  constructor(private productService: ProductService) {
-
-  }
+  constructor(private productService: ProductService) {}
 
   get filterText() {
     return this._filterText;
@@ -32,20 +30,26 @@ export class ProductListComponent implements OnInit {
   ngOnInit(): void {
     this.pageTitle = 'Liste des produits';
     this.totalRating = 0;
-    this.filteredProducts = this.productService.getProducts();
-   }
+    this.productService.getProducts().subscribe({
+      next: (data) => this.filteredProducts =  data["products"],
+      error: (message) => console.log(message),
+      complete: () => console.log('OVER'),
+    });
+  }
 
   filterProductsBy(value: string): IProduct[] {
-    return  this.filteredProducts.length ?  this.productService.getProducts().filter((product: IProduct) =>
-      product.productName.includes(value)
-    ): this.productService.getProducts();
+    return this.filteredProducts.length
+      ? this.filteredProducts.filter((product: IProduct) =>
+          product.productName.includes(value)
+        )
+      : this.filteredProducts;
   }
 
   toggleShowImage(): void {
     this.isShowImage = !this.isShowImage;
   }
 
-  receive(result: number) : void {
+  receive(result: number): void {
     this.totalRating = result;
   }
 }
