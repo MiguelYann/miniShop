@@ -26,6 +26,7 @@ export class ProductListComponent implements OnInit {
   set filterText(valueOfFilter: string) {
     this._filterText = valueOfFilter;
     this.filteredProducts = this.filterProductsBy(valueOfFilter);
+    console.log(this.filteredProducts);
   }
 
   ngOnInit(): void {
@@ -35,9 +36,9 @@ export class ProductListComponent implements OnInit {
    }
 
   filterProductsBy(value: string): IProduct[] {
-    return this.initialProducts.filter((product: IProduct) =>
+    return  this.filteredProducts.length ?  this.productService.getProducts().filter((product: IProduct) =>
       product.productName.includes(value)
-    );
+    ): this.productService.getProducts();
   }
 
   toggleShowImage(): void {
