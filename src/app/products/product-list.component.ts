@@ -31,8 +31,11 @@ export class ProductListComponent implements OnInit {
     this.pageTitle = 'Liste des produits';
     this.totalRating = 0;
     this.productService.getProducts().subscribe({
-      next: (data) => this.filteredProducts =  data["products"],
-      error: (message) => console.log(message),
+      next: (data) => {
+        this.initialProducts = data["products"];
+        this.filteredProducts =  data["products"];
+      },
+        error: (message) => console.log(message),
       complete: () => console.log('OVER'),
     });
   }
@@ -42,7 +45,7 @@ export class ProductListComponent implements OnInit {
       ? this.filteredProducts.filter((product: IProduct) =>
           product.productName.includes(value)
         )
-      : this.filteredProducts;
+      : this.initialProducts;
   }
 
   toggleShowImage(): void {
