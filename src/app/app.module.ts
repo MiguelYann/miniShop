@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { WelcomeComponent} from './welcome/welcome.component';
+import { ProductsDetailsGuard } from './products-details.guard';
 
 @NgModule({
   imports: [
@@ -21,7 +22,7 @@ import { WelcomeComponent} from './welcome/welcome.component';
       },
 
       {
-        path: 'products/:id', component: ProductDetailsComponent
+        path: 'products/:id', component: ProductDetailsComponent, canActivate: [ProductsDetailsGuard]
       },
 
       {
