@@ -1,5 +1,6 @@
 <div class="card">
-    <div class="card-header">
-        
+    <div *ngIf="product" class="card-header" >
+      Numéro Produit:  {{ product.id }} 
+        {{ product.productName }} 
     </div>
 </div>

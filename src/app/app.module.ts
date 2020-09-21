@@ -45,7 +45,9 @@ import { WelcomeComponent} from './welcome/welcome.component';
     ProductListComponent,
     ConvertToSpacePipe,
     StarComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    ProductDetailsComponent
+
   ],
   bootstrap: [AppComponent],
 })
