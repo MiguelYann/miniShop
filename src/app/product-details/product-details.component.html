@@ -1,6 +1,7 @@
 <div class="card">
-    <div *ngIf="product" class="card-header" >
-      Numéro Produit:  {{ product.id }} 
-        {{ product.productName }} 
+    <div *ngIf="product" class="card-header">
+        Numéro Produit: {{ product.id }}
+        {{ product.productName }}
     </div>
 </div>
+<button class="btn btn-danger" (click)='onBackToListProducts()'>Back to list of products</button>
