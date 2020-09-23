@@ -4,6 +4,7 @@ import { ProductDetailsComponent } from '../product-details/product-details.comp
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { ProductsDetailsGuard } from './products-details.guard';
+import { ProductRoutingModule } from './product-routing.module';
 
 
 
@@ -14,17 +15,8 @@ import { ProductsDetailsGuard } from './products-details.guard';
     ProductListComponent,
   ],
   imports: [
-    RouterModule.forChild([
-    
-    {
-      path: 'products', component: ProductListComponent
-    },
-
-    {
-      path: 'products/:id', component: ProductDetailsComponent, canActivate: [ProductsDetailsGuard]
-    },
-  ]),
-    SharedModule
+    SharedModule,
+    ProductRoutingModule
   ]
 })
 export class ProductModule { }
