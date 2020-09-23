@@ -11,13 +11,13 @@ export class ProductsDetailsGuard implements CanActivate {
   constructor(private router: Router) {
 
   }
+
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-      let id = +next.url[1].path;
-      if(isNaN(id) || id <= 0) {
-        alert(`id ${id} est invalide`);
+      let getIdFromUrl = +next.url[1].path;
+      if(isNaN(getIdFromUrl) || getIdFromUrl <= 0) {
         this.router.navigate(['/products']);
         return false;
       }
