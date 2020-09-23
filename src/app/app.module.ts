@@ -10,21 +10,16 @@ import { RouterModule } from '@angular/router';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { WelcomeComponent} from './welcome/welcome.component';
 import { ProductsDetailsGuard } from './products-details.guard';
+import { ProductModule } from './product/product.module';
 
 @NgModule({
   imports: [
     BrowserModule,
+    ProductModule,
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot([
-      {
-        path: 'products', component: ProductListComponent
-      },
-
-      {
-        path: 'products/:id', component: ProductDetailsComponent, canActivate: [ProductsDetailsGuard]
-      },
-
+     
       {
         path: 'home', component: WelcomeComponent
       },
@@ -43,11 +38,7 @@ import { ProductsDetailsGuard } from './products-details.guard';
   ],
   declarations: [
     AppComponent,
-    ProductListComponent,
-    ConvertToSpacePipe,
-    StarComponent,
     WelcomeComponent,
-    ProductDetailsComponent
 
   ],
   bootstrap: [AppComponent],
